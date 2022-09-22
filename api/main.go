@@ -5,12 +5,12 @@ import (
 	"log"
 	"os"
 
-	controller "github.com/ddld93/abedmis/src/controllers"
-	"github.com/ddld93/abedmis/src/middleware"
-	"github.com/ddld93/abedmis/src/routes"
+	controller "github.com/ddld93/abedmis/api/src/controllers"
+	"github.com/ddld93/abedmis/api/src/middleware"
+	"github.com/ddld93/abedmis/api/src/routes"
 	"github.com/gin-gonic/gin"
 
-	_ "github.com/ddld93/abedmis/docs"
+	_ "github.com/ddld93/abedmis/api/docs"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
