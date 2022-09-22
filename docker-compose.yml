@@ -103,7 +103,7 @@ services:
         - ujere_net              
   api:
     restart: always
-    build: ./paypoint
+    build: ./api
     container_name: 'api'
     labels:
       - "traefik.enable=true"

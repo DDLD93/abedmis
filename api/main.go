@@ -9,10 +9,6 @@ import (
 	"github.com/ddld93/abedmis/api/src/middleware"
 	"github.com/ddld93/abedmis/api/src/routes"
 	"github.com/gin-gonic/gin"
-
-	_ "github.com/ddld93/abedmis/api/docs"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // func init() {
@@ -47,9 +43,6 @@ func main() {
 			v1.GET("/:id", route.GetOne())
 			// v1.POST("/post", route.FormTest())
 		}
-
-
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	err := router.Run(fmt.Sprintf("%s:%v", "0.0.0.0", port))
 	if err != nil {
