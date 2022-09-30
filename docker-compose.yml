@@ -60,28 +60,28 @@ services:
   #     ME_CONFIG_MONGODB_URL: mongodb://database:27017/ 
   #   networks:
   #       - ujere_net        
-  backend:
-    restart: always
-    build: ./server
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.node-server.rule=Host(`abedmis.fmhds.gov.ng`)"
-      - "traefik.http.routers.node-server.entrypoints=websecure"
-      - "traefik.http.routers.node-server.tls.certresolver=myresolver"
-      - "traefik.http.routers.node-server.middlewares=redirect-to-https"
-      - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"  
-      - "traefik.http.routers.redirs.entrypoints=web"  
-      - "traefik.http.routers.redirs.middlewares=redirect-to-https"  
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-    depends_on:
-      - database
-    ports:
-      - 9000:9000  
-    volumes:
-     - ${PWD}/uploads:/app/uploads  
-    container_name: 'backendapp'
-    networks:
-        - ujere_net  
+  # backend:
+  #   restart: always
+  #   build: ./server
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.node-server.rule=Host(`abedmis.fmhds.gov.ng`)"
+  #     - "traefik.http.routers.node-server.entrypoints=websecure"
+  #     - "traefik.http.routers.node-server.tls.certresolver=myresolver"
+  #     - "traefik.http.routers.node-server.middlewares=redirect-to-https"
+  #     - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"  
+  #     - "traefik.http.routers.redirs.entrypoints=web"  
+  #     - "traefik.http.routers.redirs.middlewares=redirect-to-https"  
+  #     - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - 9000:9000  
+  #   volumes:
+  #    - ${PWD}/uploads:/app/uploads  
+  #   container_name: 'backendapp'
+  #   networks:
+  #       - ujere_net  
   # paypoint:
   #   restart: always
   #   build: ./paypoint
@@ -106,7 +106,7 @@ services:
     container_name: 'api'
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.paypoint.rule=Host(`paypoint.abedmis.fmhds.gov.ng`)"
+      - "traefik.http.routers.paypoint.rule=Host(`abedmis.fmhds.gov.ng`)"
       - "traefik.http.routers.paypoint.entrypoints=websecure"
       - "traefik.http.routers.paypoint.tls.certresolver=myresolver"
       - "traefik.http.routers.paypoint.middlewares=redirect-to-https"
