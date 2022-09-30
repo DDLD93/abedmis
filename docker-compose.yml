@@ -83,24 +83,24 @@ services:
     container_name: 'backendapp'
     networks:
         - ujere_net  
-  paypoint:
-    restart: always
-    build: ./paypoint
-    container_name: 'paypoint'
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.paypoint.rule=Host(`paypoint.abedmis.fmhds.gov.ng`)"
-      - "traefik.http.routers.paypoint.entrypoints=websecure"
-      - "traefik.http.routers.paypoint.tls.certresolver=myresolver"
-      - "traefik.http.routers.paypoint.middlewares=redirect-to-https"
-      - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"  
-      - "traefik.http.routers.redirs.entrypoints=web"  
-      - "traefik.http.routers.redirs.middlewares=redirect-to-https"  
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-    ports:
-      - 5000:5000   
-    networks:
-        - ujere_net              
+  # paypoint:
+  #   restart: always
+  #   build: ./paypoint
+  #   container_name: 'paypoint'
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.paypoint.rule=Host(`paypoint.abedmis.fmhds.gov.ng`)"
+  #     - "traefik.http.routers.paypoint.entrypoints=websecure"
+  #     - "traefik.http.routers.paypoint.tls.certresolver=myresolver"
+  #     - "traefik.http.routers.paypoint.middlewares=redirect-to-https"
+  #     - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"  
+  #     - "traefik.http.routers.redirs.entrypoints=web"  
+  #     - "traefik.http.routers.redirs.middlewares=redirect-to-https"  
+  #     - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+  #   ports:
+  #     - 5000:5000   
+  #   networks:
+  #       - ujere_net              
   api:
     restart: always
     build: ./api
